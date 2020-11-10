@@ -1,6 +1,9 @@
 const parseData = (input) => {
     let {data, column} = input;
-    let [{...note1}, {...note2}] = data;
-    return null;
+    return data.map(person => {
+        let [{name: name}, {name: age}, {name: gender}, {name: birthday}] = column;
+        [name, age, gender, birthday] = person;
+        return {name, age, gender, birthday};
+    })
 }
 export { parseData };
